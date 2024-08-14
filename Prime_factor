@@ -1,0 +1,14 @@
+def Factor(divisor):
+    fac = []
+    for j in [2] + list(range(3, int(divisor**0.5) + 1, 2)):
+        power = 0
+        while divisor % j == 0:
+            divisor //= j
+            power += 1
+        if power:
+            fac.append((j, power))
+    if divisor > 1:
+        fac.append((divisor, 1))
+    return fac
+
+print(Factor(60))  # Output: [(2, 2), (3, 1), (5, 1)]
